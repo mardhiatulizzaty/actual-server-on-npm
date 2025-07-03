@@ -4,7 +4,8 @@ services:
     env: node
     plan: free
     buildCommand: npm install -g @actual-app/sync-server
-    startCommand: bash -c "echo '{\"port\":' $PORT '}' > config.json && actual-server --config config.json"
+    startCommand: |
+      bash -c 'echo "{\"port\": $PORT}" > config.json && actual-server --config config.json'
     envVars:
       - key: NODE_VERSION
         value: 20.11.0
