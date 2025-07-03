@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: actual-sync
+    env: node
+    plan: free
+    buildCommand: npm install -g @actual-app/sync-server
+    startCommand: actual-server
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: ACTUAL_PORT
+        value: $PORT
